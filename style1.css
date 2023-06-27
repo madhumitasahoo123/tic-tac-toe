@@ -1,0 +1,46 @@
+html {
+    font-size: 62.5%;
+}
+img {
+    --parallax: .1;
+    --radius: 1rem;
+   /* --parallax-position: calc(100%*var(var(--parallax)/(1 + var(--parallax)))) */
+
+   --angle: calc(90deg*var(--parallax));
+   cursor: pointer;
+   aspect-ratio: calc(1 + var(--parallax));
+   width: 25rem;
+   clip-path: inset(0 var(--parallax-position) 0 0 round var(--radius));
+   object-fit: cover;
+   transform: perspective(40rem) var(--x-axis,rotateY(var(--angle)));
+   transition: .5s;
+}
+
+&:hover {
+    clip-path: inset( 0 0 0 var(--parallax-position) round var(--radius));
+    --x-axis: translate(calc(-1*var(--parallax-position)))
+    rotateY(calc(-1*var(var(--angle))))
+}
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #08172E;
+    display: grid;
+    place-content: center;
+}
+.img-wrapper {
+    display: grid;
+    place-content: center;
+    grid-auto-flow: column;
+    gap: 3rem;
+}
+.heading-wrapper {
+    display: flex;
+    margin: 0 0 2.4rem 0;
+    justify-content: center;
+    color: white;
+    font-size: 2.4rem;
+    font-family: "Grill Sans", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
